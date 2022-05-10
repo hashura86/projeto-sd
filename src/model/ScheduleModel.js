@@ -1,17 +1,16 @@
-import mongoose from "mongoose"
+import mongoose from "mongoose";
 
 const ScheduleSchema = new mongoose.Schema(
     {
-        name: { type: String, required: true },
-        email: {type: String, required: true},
-        password: { type: String, required: true },
-        birthDate: Date,
+        schedulingDate: { type: Date, required: true },
+        schedulingTime: { type: Date, required: true },
+        wasAttended: { type: String, enum: ["yes", "no"], default: "no" },
     },
     {
-        timestamps: true
+        timestamps: true,
     }
-)
+);
 
-const ScheduleModel = mongoose.model("scheduling", ScheduleSchema)
+const ScheduleModel = mongoose.model("scheduling", ScheduleSchema);
 
-export default ScheduleModel
+export default ScheduleModel;
